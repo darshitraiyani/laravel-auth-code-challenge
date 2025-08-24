@@ -28,8 +28,8 @@ This application provides secure authentication mechanisms with user invitation 
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/laravel-auth-challenge.git
-   cd laravel-auth-challenge
+   git clone https://github.com/darshitraiyani/laravel-auth-code-challenge.git
+   cd laravel-auth-code-challenge
    ```
 
 2. **Install Dependencies**
