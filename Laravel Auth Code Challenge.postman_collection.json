@@ -1,0 +1,2135 @@
+{
+	"info": {
+		"_postman_id": "2b43efab-9d45-4a5f-99f7-978eb06ecc2d",
+		"name": "Laravel Auth Code Challenge",
+		"description": "The collection contains two authentication flows.\n\n- **Flow 1 – Login with Magic Link** (without OTP)\n    \n- **Flow 2 – Login without Magic Link** (classic email + OPT)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26623514"
+	},
+	"item": [
+		{
+			"name": "Flow 2 - Email + OTP",
+			"item": [
+				{
+					"name": "Get User Details by Email ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/verify-email?email=johndoe@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"verify-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-email?email=johndoe@gmail.com",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 11:34:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email field is required.\",\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Email ID Not Found Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-email?email=johndoe@gmail.com",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 11:35:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"This email ID has not been invited by your company admin. Please contact your admin for access.\"\n}"
+						},
+						{
+							"name": "Email Verified Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-email?email=johndoe@gmail.com",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-email"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 17:22:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Email verified successfully.\",\n    \"user\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"johndoe@gmail.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Send OTP",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/send-otp?email=johndoe@gmail.com",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"send-otp"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/send-otp",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"send-otp"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 11:50:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email field is required.\",\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "OTP Sent Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/send-otp?email=johndoe@gmail.com",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"send-otp"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 11:50:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"OTP sent to email successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/verify-otp?email=johndoe@gmail.com&otp=912897",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"verify-otp"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com"
+								},
+								{
+									"key": "otp",
+									"value": "912897"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-otp",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-otp"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 12:10:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email field is required. (and 1 more error)\",\n    \"errors\": {\n        \"email\": [\n            \"The email field is required.\"\n        ],\n        \"otp\": [\n            \"The otp field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Expired OTP",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-otp?email=darshitraiyani@gmail.com&otp=174404",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-otp"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "darshitraiyani@gmail.com"
+										},
+										{
+											"key": "otp",
+											"value": "174404"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 12:11:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid or expired OTP\"\n}"
+						},
+						{
+							"name": "OTP Verified Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/verify-otp?email=johndoe@gmail.com&otp=912897",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"verify-otp"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "johndoe@gmail.com"
+										},
+										{
+											"key": "otp",
+											"value": "912897"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 17:25:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"OTP verified successfully.\",\n    \"token\": \"3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711\",\n    \"user\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"johndoe@gmail.com\",\n        \"company_name\": \"Woliba\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Flow 1 - Magic Link",
+			"item": [
+				{
+					"name": "Magic Link User Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/magic-link/user?expires=expirationTime&token=hashedToken&signature=signature",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"magic-link",
+								"user"
+							],
+							"query": [
+								{
+									"key": "expires",
+									"value": "expirationTime"
+								},
+								{
+									"key": "token",
+									"value": "hashedToken"
+								},
+								{
+									"key": "signature",
+									"value": "signature"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Magic Link will be sent on Invitation Email.  \nThis contains only URL of the Magic Link."
+		},
+		{
+			"name": "Invite User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"johndoe@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/invite",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"invite"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validation Errors",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"email\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/invite",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"invite"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 05:46:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The first name field is required. (and 2 more errors)\",\n    \"errors\": {\n        \"first_name\": [\n            \"The first name field is required.\"\n        ],\n        \"last_name\": [\n            \"The last name field is required.\"\n        ],\n        \"email\": [\n            \"The email field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Valid Email Address Validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"@darshitraiyani\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/invite",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"invite"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 05:46:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The email field must be a valid email address.\",\n    \"errors\": {\n        \"email\": [\n            \"The email field must be a valid email address.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Generic Success Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"darshitraiyani@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/invite",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"invite"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 09:21:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Invitation sent successfully. Please check your email.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Save User Profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"Secret123\",\n    \"password_confirmation\":\"Secret123\",\n    \"dob\": \"04/19/1996\",\n    \"contact_number\": \"09876543211\",\n    \"confirmation_flag\":true\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validation Errors",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|SKm9B0Z8W5idbJ55yIh4U4gfcqyNh3Cgvn3eOhoJf33df223",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"passoword\": \"\",\n    \"dob\": \"\",\n    \"contact_number\": \"\",\n    \"confirmation_flag\":\"\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 06:49:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The password field is required. (and 3 more errors)\",\n    \"errors\": {\n        \"password\": [\n            \"The password field is required.\"\n        ],\n        \"dob\": [\n            \"The dob field is required.\"\n        ],\n        \"contact_number\": [\n            \"The contact number field is required.\"\n        ],\n        \"confirmation_flag\": [\n            \"The confirmation flag field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Confirm Password Match Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|SKm9B0Z8W5idbJ55yIh4U4gfcqyNh3Cgvn3eOhoJf33df223",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"Secret123\",\n    \"password_confirmation\":\"Secret12\",\n    \"dob\": \"03/19/1996\",\n    \"contact_number\": \"1234567890\",\n    \"confirmation_flag\":true\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 06:52:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The password field confirmation does not match.\",\n    \"errors\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "DOB Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|SKm9B0Z8W5idbJ55yIh4U4gfcqyNh3Cgvn3eOhoJf33df223",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"Secret123\",\n    \"password_confirmation\":\"Secret123\",\n    \"dob\": \"03/19\",\n    \"contact_number\": \"1234567890\",\n    \"confirmation_flag\":true\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 06:53:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The dob field must match the format m/d/Y.\",\n    \"errors\": {\n        \"dob\": [\n            \"The dob field must match the format m/d/Y.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Profile Saved Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"Secret123\",\n    \"password_confirmation\":\"Secret123\",\n    \"dob\": \"04/19/1996\",\n    \"contact_number\": \"09876543211\",\n    \"confirmation_flag\":true\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 17:28:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Profile saved successfully.\",\n    \"user\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"johndoe@gmail.com\",\n        \"dob\": \"1996-04-19\",\n        \"contact_number\": \"09876543211\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Wellness Interests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"darshitraiyani@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/wellness-interests",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wellness-interests"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wellness Interests Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"darshitraiyani@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellness-interests",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellness-interests"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 09:25:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Wellness interests retrieved successfully.\",\n    \"data\": [\n        {\n            \"category\": \"Individual Sports\",\n            \"interests\": [\n                {\n                    \"id\": 1,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Aerobics\"\n                },\n                {\n                    \"id\": 2,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Yoga\"\n                },\n                {\n                    \"id\": 3,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Running\"\n                },\n                {\n                    \"id\": 4,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Cycling\"\n                },\n                {\n                    \"id\": 5,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Hiking\"\n                },\n                {\n                    \"id\": 6,\n                    \"category\": \"Individual Sports\",\n                    \"name\": \"Tennis\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Ball Sports\",\n            \"interests\": [\n                {\n                    \"id\": 7,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Football\"\n                },\n                {\n                    \"id\": 8,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Basketball\"\n                },\n                {\n                    \"id\": 9,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Volleyball\"\n                },\n                {\n                    \"id\": 10,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Cricket\"\n                },\n                {\n                    \"id\": 11,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Baseball\"\n                },\n                {\n                    \"id\": 12,\n                    \"category\": \"Ball Sports\",\n                    \"name\": \"Rugby\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Wheel Sports\",\n            \"interests\": [\n                {\n                    \"id\": 13,\n                    \"category\": \"Wheel Sports\",\n                    \"name\": \"Skateboarding\"\n                },\n                {\n                    \"id\": 14,\n                    \"category\": \"Wheel Sports\",\n                    \"name\": \"Rollerblading\"\n                },\n                {\n                    \"id\": 15,\n                    \"category\": \"Wheel Sports\",\n                    \"name\": \"BMX\"\n                },\n                {\n                    \"id\": 16,\n                    \"category\": \"Wheel Sports\",\n                    \"name\": \"Mountain Biking\"\n                },\n                {\n                    \"id\": 17,\n                    \"category\": \"Wheel Sports\",\n                    \"name\": \"Scootering\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Combat Sports\",\n            \"interests\": [\n                {\n                    \"id\": 18,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Boxing\"\n                },\n                {\n                    \"id\": 19,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Kickboxing\"\n                },\n                {\n                    \"id\": 20,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Mixed Martial Arts (MMA)\"\n                },\n                {\n                    \"id\": 21,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Wrestling\"\n                },\n                {\n                    \"id\": 22,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Judo\"\n                },\n                {\n                    \"id\": 23,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Karate\"\n                },\n                {\n                    \"id\": 24,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Taekwondo\"\n                },\n                {\n                    \"id\": 25,\n                    \"category\": \"Combat Sports\",\n                    \"name\": \"Muay Thai\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Resistance Training\",\n            \"interests\": [\n                {\n                    \"id\": 26,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Weightlifting\"\n                },\n                {\n                    \"id\": 27,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Bodybuilding\"\n                },\n                {\n                    \"id\": 28,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"CrossFit\"\n                },\n                {\n                    \"id\": 29,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Powerlifting\"\n                },\n                {\n                    \"id\": 30,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Functional Training\"\n                },\n                {\n                    \"id\": 31,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Resistance Band Workouts\"\n                },\n                {\n                    \"id\": 32,\n                    \"category\": \"Resistance Training\",\n                    \"name\": \"Calisthenics\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Winter Sports\",\n            \"interests\": [\n                {\n                    \"id\": 33,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Skiing (Alpine / Cross-country)\"\n                },\n                {\n                    \"id\": 34,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Snowboarding\"\n                },\n                {\n                    \"id\": 35,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Ice Skating\"\n                },\n                {\n                    \"id\": 36,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Ice Hockey\"\n                },\n                {\n                    \"id\": 37,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Curling\"\n                },\n                {\n                    \"id\": 38,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Snowshoeing\"\n                },\n                {\n                    \"id\": 39,\n                    \"category\": \"Winter Sports\",\n                    \"name\": \"Sledding\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Water Sports\",\n            \"interests\": [\n                {\n                    \"id\": 40,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Swimming\"\n                },\n                {\n                    \"id\": 41,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Surfing\"\n                },\n                {\n                    \"id\": 42,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Diving (Scuba / Free Diving)\"\n                },\n                {\n                    \"id\": 43,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Snorkeling\"\n                },\n                {\n                    \"id\": 44,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Kayaking\"\n                },\n                {\n                    \"id\": 45,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Canoeing\"\n                },\n                {\n                    \"id\": 46,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Rowing\"\n                },\n                {\n                    \"id\": 47,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Sailing\"\n                },\n                {\n                    \"id\": 48,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Stand-up Paddleboarding\"\n                },\n                {\n                    \"id\": 49,\n                    \"category\": \"Water Sports\",\n                    \"name\": \"Water Polo\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Other Sports\",\n            \"interests\": [\n                {\n                    \"id\": 50,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Archery\"\n                },\n                {\n                    \"id\": 51,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Rock Climbing\"\n                },\n                {\n                    \"id\": 52,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Horseback Riding (Equestrian)\"\n                },\n                {\n                    \"id\": 53,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Golf\"\n                },\n                {\n                    \"id\": 54,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Frisbee / Disc Golf\"\n                },\n                {\n                    \"id\": 55,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Orienteering\"\n                },\n                {\n                    \"id\": 56,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Parkour\"\n                },\n                {\n                    \"id\": 57,\n                    \"category\": \"Other Sports\",\n                    \"name\": \"Adventure Racing\"\n                }\n            ]\n        },\n        {\n            \"category\": \"Wellness\",\n            \"interests\": [\n                {\n                    \"id\": 58,\n                    \"category\": \"Wellness\",\n                    \"name\": \"Meditation\"\n                },\n                {\n                    \"id\": 59,\n                    \"category\": \"Wellness\",\n                    \"name\": \"Nutrition\"\n                },\n                {\n                    \"id\": 60,\n                    \"category\": \"Wellness\",\n                    \"name\": \"Mindfulness\"\n                },\n                {\n                    \"id\": 61,\n                    \"category\": \"Wellness\",\n                    \"name\": \"Pilates\"\n                },\n                {\n                    \"id\": 62,\n                    \"category\": \"Wellness\",\n                    \"name\": \"Breathwork\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Wellbeing Pillars",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"darshitraiyani@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wellbeing-pillars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wellbeing Pillars Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Darshit\",\n    \"last_name\": \"Raiyani\",\n    \"email\": \"darshitraiyani@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellbeing-pillars"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 09:31:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Wellbeing pillars retrieved successfully.\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Physical Wellbeing\",\n            \"description\": \"Energy, movement, sleep and nourishing care\",\n            \"order\": 1\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Mental Wellbeing\",\n            \"description\": \"Clarity, focus and mindfulness\",\n            \"order\": 2\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Emotional Wellbeing\",\n            \"description\": \"Resilience, self-awareness and stress regulation\",\n            \"order\": 3\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Social Wellbeing\",\n            \"description\": \"Relationships and meaningful connections\",\n            \"order\": 4\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Intellectual Wellbeing\",\n            \"description\": \"Growth, creativity and learning\",\n            \"order\": 5\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Occupational Wellbeing\",\n            \"description\": \"Purpose, performance and work-life balance\",\n            \"order\": 6\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Spiritual Wellbeing\",\n            \"description\": \"Values, meaning and inner alignment\",\n            \"order\": 7\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Environmental Wellbeing\",\n            \"description\": \"Healthy, safe and inspiring surroundings\",\n            \"order\": 8\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Purpose & Contribution\",\n            \"description\": \"Giving back and being contributory\",\n            \"order\": 9\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Longevity\",\n            \"description\": \"Sustainable, healthy lifestyle for the long term\",\n            \"order\": 10\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Nutritional Wellbeing\",\n            \"description\": \"Fueling your body and brain with nutrition\",\n            \"order\": 11\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Financial Wellbeing\",\n            \"description\": \"Security, budgeting and long-term stability\",\n            \"order\": 12\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Save User Wellness Interests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"interest_ids\": [1,2]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/wellness-interests",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wellness-interests"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validation Errors",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"interest_ids\": []\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellness-interests",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellness-interests"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 09:48:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The interest ids field is required.\",\n    \"errors\": {\n        \"interest_ids\": [\n            \"The interest ids field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Wellness Intersts Saved Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"interest_ids\": [1,2]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellness-interests",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellness-interests"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 09:49:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Wellness interests saved successfully.\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Aerobics\",\n            \"category\": \"Individual Sports\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Yoga\",\n            \"category\": \"Individual Sports\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Save User Wellbeing Pillars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 3|7OF29Kbey4B7eeid8Gl91tkUYyxo8QiHwLW8laehfb498711",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pillar_ids\": [3,2,1]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"wellbeing-pillars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validation Errors",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pillar_ids\": []\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellbeing-pillars"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 10:01:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The pillar ids field is required.\",\n    \"errors\": {\n        \"pillar_ids\": [\n            \"The pillar ids field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Exact Wellbeing Pillars Validation Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pillar_ids\": [1,2]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellbeing-pillars"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 10:01:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"You must select exactly 3 wellbeing pillars.\",\n    \"errors\": {\n        \"pillar_ids\": [\n            \"You must select exactly 3 wellbeing pillars.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Wellbeing Pillars Saved Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|EcvWjMd3pAy3JnPP0OINAC8OO67qNjjGu6LOFJVt9e297811",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pillar_ids\": [3,2,1]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/wellbeing-pillars",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"wellbeing-pillars"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.29"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 24 Aug 2025 10:07:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Wellbeing pillars saved successfully.\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Emotional Wellbeing\",\n            \"description\": \"Resilience, self-awareness and stress regulation\",\n            \"selection_order\": 1\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Mental Wellbeing\",\n            \"description\": \"Clarity, focus and mindfulness\",\n            \"selection_order\": 2\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Physical Wellbeing\",\n            \"description\": \"Energy, movement, sleep and nourishing care\",\n            \"selection_order\": 3\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
